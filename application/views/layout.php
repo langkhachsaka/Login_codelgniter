@@ -19,9 +19,10 @@
                     <li><a href="#">PORTFOLIO</a></li>
                     <li><a href="#">BLOG</a></li>
                     <li><a href="#">FEATURES</a></li>
-                    <li><a href="<?php echo base_url('user/user_logout');?>">Logout</a></li>
+                    <li><a href="<?php echo base_url('user/user_logout'); ?>">Logout</a></li>
 
-                </ul>x`
+                </ul>
+                x`
             </nav>
             <tr>
                 <form>
@@ -56,11 +57,11 @@
 
         <h4>SLIDEBAR GALLERY</h4>
         <img src="<?php echo base_url(); ?>assets/images/slide1.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
-        <img src="<?php echo base_url(); ?>assets/images/slide2.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
+        <img src="<?php echo base_url(); ?>assets/images/sac.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
         <img src="<?php echo base_url(); ?>assets/images/slide3.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
-        <img src="<?php echo base_url(); ?>assets/images/slide4.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
+        <img src="<?php echo base_url(); ?>assets/images/phone.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
         <img src="<?php echo base_url(); ?>assets/images/slide.jpg" height="40" width="70" vspace="7px" hspace="5px"/>
-        <img src="<?php echo base_url(); ?>assets/images/slide3.jpg" height="40 " width="70" vspace="7px" hspace="5px"/>
+        <img src="<?php echo base_url(); ?>assets/images/sac1.jpg" height="40 " width="70" vspace="7px" hspace="5px"/>
     </div>
 </div>
 <!--content1-->
@@ -94,31 +95,38 @@
 <!--content2-->
 <div id="content2">
     <div id="content2_left">
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b>HP Pavilion X360 14-BA062TU (2GV24PA)</b></button>
         <div class="panel">
-            <p> consequat.</p>
+            <p>Khuyến mãi tháng 04/2018 :
+                - Trả góp 0% (FE Credit-ACS-Home Credit-HD Saison)
+                - Trọn bộ Office 365 Personal+ Phần mềm diệt Virus ESET NOD32 với giá ưu đãi 599.000đ</p>
         </div>
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b> Wallpapers HD</b></button>
         <div class="panel">
-            <p> ex ea commodo consequat.</p>
+            <p>LAPTOP HP 15-BS555TU có thiết kế bắt mắt và sang trọng, phù hợp với những bạn trẻ yêu thích sự năng động,
+                tinh tế, thời trang.</p>
         </div>
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b> Acer Aspire ES1-572-32GZ</b></button>
         <div class="panel">
-            <p> ex ea commodo consequat.</p>
+            <p>Acer Aspire ES1-572-32GZ là sản phẩm phục vụ tốt cho học tập, công việc và giải trí. Kiểu dáng năng động,
+                kích thước nhỏ</p>
         </div>
     </div>
     <div id="content2_right">
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b>HP 14-BS565TU</b></button>
         <div class="panel">
-            <p> consequat.</p>
+            <p> Laptop HP 14-BS565TU có thể giúp bạn xử lý công việc hiệu quả, phục vụ tốt cho việc học và tạo cho bạn
+                không gian giải trí sau những căng thẳng của cuộc sống.</p>
         </div>
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b>Asus X541UA-GO1372T</b></button>
         <div class="panel">
-            <p> ex ea commodo consequat.</p>
+            <p> Laptop Asus X541UA-GO1372T thể hiện sự tinh tế và đẳng cấp của người dùng. Ngoài ra với cấu hình ổn
+                định, màn hình kích thước lớn cũng đem lại cho bạn những trải nghiệm thú vị</p>
         </div>
-        <button type="button" class="accordion"><b>Simple collapsible</b></button>
+        <button type="button" class="accordion"><b> Asus X541UA - GO508D</b></button>
         <div class="panel">
-            <p> ex ea commodo consequat.</p>
+            <p> Laptop Asus X541UA - GO508D mới được nhà sản xuất ra mắt gần đây, cải thiện về thiết kế lẫn cấu hình bên
+                trong</p>
         </div>
     </div>
 </div>
