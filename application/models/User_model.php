@@ -3,13 +3,20 @@
 class User_model extends CI_model
 {
 
-
     public function register_user($user)
     {
         $this->db->insert('user', $user);
 
     }
-    public function get_users() {
+
+    public function add_user($users)
+    {
+        $this->db->insert('user', $users);
+
+    }
+
+    public function get_users()
+    {
 
         if ($query = $this->db->get('user')) {
             return $query->result_array();
@@ -26,10 +33,12 @@ class User_model extends CI_model
         $this->db->where('user_password', $pass);
         if ($query = $this->db->get()) {
             return $query->row_array();
+
         } else {
             return false;
         }
     }
+
     public function email_check($email)
     {
         $this->db->select('*');
@@ -43,10 +52,13 @@ class User_model extends CI_model
             return true;
         }
     }
+
     public function __construct()
     {
         parent::__construct();
 
     }
+
 }
+
 ?>

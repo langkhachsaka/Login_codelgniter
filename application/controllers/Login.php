@@ -6,7 +6,4 @@ class Login extends CI_Controller {
         $this->load->view('login');
 
     }
-    public function profile(){
-        $this->load->view('profile');
-    }
 }
