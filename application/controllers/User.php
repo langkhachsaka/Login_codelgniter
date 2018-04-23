@@ -42,8 +42,6 @@ class User extends CI_Controller
 
             $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
             redirect('user');
-
-
         }
 
     }
@@ -82,11 +80,13 @@ class User extends CI_Controller
 
     }
 
-    public function login_view()
-    {
-
-        $this->load->view("login.php");
-    }
+    public function login_view(){
+    if(isset($_SESSION["username"])){
+           $this->user_profile();
+        } else{
+            $this->load->view("login.php");
+        }
+}
 
     function login_user()
     {
@@ -98,9 +98,8 @@ class User extends CI_Controller
             // login đúng thì sẽ --> trang admin
         $data = $this->user_model->login_user($user_login['user_email'], $user_login['user_password']);
         if ($data) {
+            $_SESSION["username"] = $user_login['user_email'];
             $data['users'] = $this->user_model->get_users();
-
-
             $this->load->view('user_profile.php', $data);
         } // login sai thì sẽ --> trang login và báo lỗi
         else {
@@ -114,21 +113,47 @@ class User extends CI_Controller
 
     function user_profile()
     {
-
-        $this->load->view('user_profile.php');
+        $data['users'] = $this->user_model->get_users();
+        $this->load->view('user_profile.php',$data);
 
     }
 
     public function user_logout()
     {
-
         $this->session->sess_destroy();
         redirect('user/login_view', 'refresh');
     }
     public function layout()
     {
         $this->load->view('layout');
-
+    }
+// controller update
+    public function update(){
+            $user_id = $_GET['user_id'];
+            $data['users'] = $this->user_model->show_user_id($user_id);
+           // $data['user_id '] = $this->user_model->show_user_id($user_id);
+            $this->load->view('update_user',$data);
+    }
+    public function update_user_id() {
+        $user_id= $this->input->post('user_id');
+        $data = array(
+            'user_name' => $this->input->post('user_name'),
+            'user_email' => $this->input->post('user_email'),
+            'user_password' => md5($this->input->post('user_password')),
+            'user_age' => $this->input->post('user_age'),
+            'user_mobile' => $this->input->post('user_mobile'),
+            'user_role' => $this->input->post('user_role')
+        );
+        $this->user_model->update_user_id($user_id,$data);
+        $this->show_user_id();
+    }
+    public function delete(){
+        $user_id = $this->uri->segment(3);
+        $input= array('user_id'=>$user_id);
+        if ($this->user_model->show_users($input)){
+            $this->user_model->delete($input);
+            redirect(base_url('user/user_profile'));
+        }
     }
 }
 

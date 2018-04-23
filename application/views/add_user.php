@@ -53,7 +53,7 @@
 
                           </fieldset>
                       </form>
-                      <center></b> <br></b><a href="<?php echo base_url('user/add_user'); ?>">Back</a></center><!--for centered text-->
+                      <center></b> <br></b><a href="<?php echo base_url('user/user_profile'); ?>">Back</a></center><!--for centered text-->
                   </div>
               </div>
           </div>

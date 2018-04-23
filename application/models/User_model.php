@@ -2,6 +2,11 @@
 
 class User_model extends CI_model
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
 
     public function register_user($user)
     {
@@ -53,10 +58,36 @@ class User_model extends CI_model
         }
     }
 
-    public function __construct()
+    //Lấy danh sách user
+    function show_users()
     {
-        parent::__construct();
+        $query = $this->db->get('user');
+        $query_result = $query->result();
+        return $query_result;
+    }
 
+    // Load du lieu dua vao id
+    function show_user_id($data)
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('user_id', $data);
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
+    // update vao csdl
+    function update_user_id($user_id, $data)
+    {
+        $this->db->where('user_id', $user_id);
+        $this->db->update('user', $data);
+       /* $this->db->update('user', $data,array('user_id'=>$user_id));*/
+    }
+    //delete csdl
+    public function delete($user_id){
+        $this->db->where($user_id);
+        $this->db->delete('user');
     }
 
 }
