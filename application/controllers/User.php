@@ -10,6 +10,7 @@ class User extends CI_Controller
         $this->load->helper('url');
         $this->load->model('user_model');
         $this->load->library('session');
+        $this->load->database();
 
     }
 
@@ -148,13 +149,19 @@ class User extends CI_Controller
         $this->show_user_id();
     }
     public function delete(){
-        $user_id = $this->uri->segment(3);
+        /*$user_id = $this->uri->segment(3);
         $input= array('user_id'=>$user_id);
         if ($this->user_model->show_users($input)){
             $this->user_model->delete($input);
-            redirect(base_url('user/user_profile'));
+            redirect(base_url('user/user_profile'));*/
+        $user_id= $this->input->get('user_id');
+        if($this->user_model->delete($user_id)){
+            $data['data']=$this->user_model->get_users();
+            $this->load->view('user_profile.php',$data);
+        }
         }
     }
-}
+
+
 
 ?>

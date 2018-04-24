@@ -5,7 +5,7 @@ class User_model extends CI_model
     public function __construct()
     {
         parent::__construct();
-
+        $this->load->database();
     }
 
     public function register_user($user)
@@ -86,10 +86,13 @@ class User_model extends CI_model
     }
     //delete csdl
     public function delete($user_id){
-        $this->db->where($user_id);
+        $this->load->database();
+        $this->db->where('user_id',$user_id);
         $this->db->delete('user');
+        return true;
     }
 
 }
+
 
 ?>
