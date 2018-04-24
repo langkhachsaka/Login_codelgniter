@@ -156,7 +156,7 @@ class User extends CI_Controller
             redirect(base_url('user/user_profile'));*/
         $user_id= $this->input->get('user_id');
         if($this->user_model->delete($user_id)){
-            $data['data']=$this->user_model->get_users();
+            $data['users']=$this->user_model->get_users();
             $this->load->view('user_profile.php',$data);
         }
         }

@@ -53,6 +53,7 @@
             <th>Email</th>
             <th>Age</th>
             <th>Mobile</th>
+            <th>Role</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -66,6 +67,7 @@
                 <td><?php echo $user['user_email']; ?></td>
                 <td><?php echo $user['user_age']; ?></td>
                 <td><?php echo $user['user_mobile']; ?></td>
+                <td><?php echo $user['user_role']; ?></td>
                 <td>
                     <a href="<?php echo base_url('user/update?user_id=' . $user['user_id']) ?>">Update</a>
                     <a href="<?php echo base_url('user/delete?user_id=' . $user['user_id']) ?>">Delete</a>
