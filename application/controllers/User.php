@@ -145,7 +145,9 @@ class User extends CI_Controller
             'user_role' => $this->input->post('user_role')
         );
         $this->user_model->update_user_id($user_id,$data);
-        $this->user_model->show_user_id();
+        $this->user_model->show_user_id($user_id);
+        $data['users'] = $this->user_model->get_users();
+        $this->load->view('user_profile.php', $data);
     }
     public function delete(){
         $user_id= $this->input->get('user_id');
