@@ -46,6 +46,12 @@
 </nav>
 
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    <br>
+    <form action="<?php echo site_url('user/search_keyword');?>" method = "post">
+        <input type="text" name = "user_name" />
+        <input type="submit"  name="submit" value = "Search" style="color: #2e8ece; border-radius: 5px" />
+    </form>
+    <br>
     <table>
         <tr>
             <th>ID</th>
@@ -59,9 +65,9 @@
         </thead>
         <tbody>
 
-
-        <?php foreach ($users as $user) : ?>
+        <?php foreach ($users as $user) : ;?>
             <tr>
+
                 <td><?php echo $user['user_id']; ?></td>
                 <td><?php echo $user['user_name']; ?></td>
                 <td><?php echo $user['user_email']; ?></td>

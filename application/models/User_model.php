@@ -59,7 +59,7 @@ class User_model extends CI_model
     }
 
     //Lấy danh sách user
-    function show_users()
+    public function show_users()
     {
         $query = $this->db->get('user');
         $query_result = $query->result();
@@ -67,7 +67,7 @@ class User_model extends CI_model
     }
 
     // Load du lieu dua vao id
-    function show_user_id($data)
+    public function show_user_id($data)
     {
         $this->db->select('*');
         $this->db->from('user');
@@ -78,11 +78,10 @@ class User_model extends CI_model
     }
 
     // update vao csdl
-    function update_user_id($user_id, $data)
+    public function update_user_id($user_id, $data)
     {
         $this->db->where('user_id', $user_id);
         $this->db->update('user', $data);
-       /* $this->db->update('user', $data,array('user_id'=>$user_id));*/
     }
     //delete csdl
     public function delete($user_id){
@@ -91,7 +90,15 @@ class User_model extends CI_model
         $this->db->delete('user');
         return true;
     }
-
+    //search data
+    public function search($user_name)
+    {
+        $this->db->select('*');
+        $this->db->like('user_name',$user_name);
+        $this->db->from('user');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
 }
 
 

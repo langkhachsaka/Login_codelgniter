@@ -132,7 +132,6 @@ class User extends CI_Controller
     public function update(){
             $user_id = $_GET['user_id'];
             $data['users'] = $this->user_model->show_user_id($user_id);
-           // $data['user_id '] = $this->user_model->show_user_id($user_id);
             $this->load->view('update_user',$data);
     }
     public function update_user_id() {
@@ -146,22 +145,22 @@ class User extends CI_Controller
             'user_role' => $this->input->post('user_role')
         );
         $this->user_model->update_user_id($user_id,$data);
-        $this->show_user_id();
+        $this->user_model->show_user_id();
     }
     public function delete(){
-        /*$user_id = $this->uri->segment(3);
-        $input= array('user_id'=>$user_id);
-        if ($this->user_model->show_users($input)){
-            $this->user_model->delete($input);
-            redirect(base_url('user/user_profile'));*/
         $user_id= $this->input->get('user_id');
         if($this->user_model->delete($user_id)){
             $data['users']=$this->user_model->get_users();
             $this->load->view('user_profile.php',$data);
+
         }
         }
+    public function search_keyword()
+    {
+        $user_name= $this->input->post('user_name');
+        $data['users']= $this->user_model->search($user_name);
+        $this->load->view('user_profile.php',$data);
     }
-
-
+    }
 
 ?>

@@ -24,7 +24,7 @@
                   }
                   ?>
                       <?php foreach ($users as $user) : ?>
-                          <form role="form" method="post" action="<?php echo base_url('user/update/update_user'); ?>">
+                          <form role="form" method="post" action="<?php echo base_url('user/update_user_id'); ?>">
                           <fieldset>
 
                               <div class="form-group">
