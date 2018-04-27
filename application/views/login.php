@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Login-CI Login Registration</title>
+    <title>Login</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css'); ?>">
 </head>
 <body>

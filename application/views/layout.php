@@ -4,10 +4,24 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
     <script language="JavaScript" src="<?php echo base_url('assets/css/script_tab.js'); ?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
     <div class="wrapper">
+        <div class="date">
+        <script>
+            var currentdate = new Date();
+            var datetime = "Now: " + currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/"
+                + currentdate.getFullYear() + "  "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+
+            document.write(datetime);
+        </script>
+        </div>
         <div class="header">
             <a href="#"><img src="<?php echo base_url(); ?>assets/images/logo.jpg" alt="logo"/></a>
 
@@ -427,6 +441,16 @@
                 <a href="#" class="fa fa-google"></a>
             </div>
         </div>
+
     </div>
 
 </footer>
+<div class="scroll">Top</div>
+<script type="text/javascript">
+$(document).ready(function () {
+$('.scroll').on('click',function (event) {
+event.preventDefault();
+$('html,body').animate({scrollTop: 0}, 500);
+});
+});
+</script>
