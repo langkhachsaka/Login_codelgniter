@@ -48,7 +48,7 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
     <br>
     <form action="<?php echo site_url('user/search_keyword');?>" method = "post">
-        <input type="text" name = "user_name" />
+        <input type="text" onfocus="this.value=''" value="Nhập tên user" name = "user_name" />
         <input type="submit"  name="submit" value = "Search" style="color: #2e8ece; border-radius: 5px" />
     </form>
     <br>
