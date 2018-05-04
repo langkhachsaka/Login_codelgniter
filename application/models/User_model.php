@@ -83,18 +83,21 @@ class User_model extends CI_model
         $this->db->where('user_id', $user_id);
         $this->db->update('user', $data);
     }
+
     //delete csdl
-    public function delete($user_id){
+    public function delete($user_id)
+    {
         $this->load->database();
-        $this->db->where('user_id',$user_id);
+        $this->db->where('user_id', $user_id);
         $this->db->delete('user');
         return true;
     }
+
     //search data
     public function search($user_name)
     {
         $this->db->select('*');
-        $this->db->like('user_name',$user_name);
+        $this->db->like('user_name', $user_name);
         $this->db->from('user');
         $result = $this->db->get()->result_array();
         return $result;

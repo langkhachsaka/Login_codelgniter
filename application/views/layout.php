@@ -10,17 +10,17 @@
 <header>
     <div class="wrapper">
         <div class="date">
-        <script>
-            var currentdate = new Date();
-            var datetime = "Now: " + currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + "  "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
+            <script>
+                var currentdate = new Date();
+                var datetime = "Now: " + currentdate.getDate() + "/"
+                    + (currentdate.getMonth() + 1) + "/"
+                    + currentdate.getFullYear() + "  "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
 
-            document.write(datetime);
-        </script>
+                document.write(datetime);
+            </script>
         </div>
         <div class="header">
             <a href="#"><img src="<?php echo base_url(); ?>assets/images/logo.jpg" alt="logo"/></a>
@@ -447,10 +447,10 @@
 </footer>
 <div class="scroll">Top</div>
 <script type="text/javascript">
-$(document).ready(function () {
-$('.scroll').on('click',function (event) {
-event.preventDefault();
-$('html,body').animate({scrollTop: 0}, 500);
-});
-});
+    $(document).ready(function () {
+        $('.scroll').on('click', function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: 0}, 500);
+        });
+    });
 </script>

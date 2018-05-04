@@ -31,7 +31,7 @@ class User extends CI_Controller
             'user_role' => $this->input->post('user_role')
         );
         print_r($user);
-          //check địa chỉ email
+        //check địa chỉ email
         $email_check = $this->user_model->email_check($user['user_email']);
 
         if ($email_check) {
@@ -62,7 +62,7 @@ class User extends CI_Controller
             'user_mobile' => $this->input->post('user_mobile'),
             'user_role' => $this->input->post('user_role')
         );
-       /* print_r($users);*/
+        /* print_r($users);*/
         //check địa chỉ email
         $email_check = $this->user_model->email_check($users['user_email']);
 
@@ -81,13 +81,14 @@ class User extends CI_Controller
 
     }
 
-    public function login_view(){
-    if(isset($_SESSION["username"])){
-           $this->user_profile();
-        } else{
+    public function login_view()
+    {
+        if (isset($_SESSION["username"])) {
+            $this->user_profile();
+        } else {
             $this->load->view("login.php");
         }
-}
+    }
 
     function login_user()
     {
@@ -96,7 +97,7 @@ class User extends CI_Controller
             'user_password' => md5($this->input->post('user_password'))
 
         );
-            // login đúng thì sẽ --> trang admin
+        // login đúng thì sẽ --> trang admin
         $data = $this->user_model->login_user($user_login['user_email'], $user_login['user_password']);
         if ($data) {
             $_SESSION["username"] = $user_login['user_email'];
@@ -115,7 +116,7 @@ class User extends CI_Controller
     function user_profile()
     {
         $data['users'] = $this->user_model->get_users();
-        $this->load->view('user_profile.php',$data);
+        $this->load->view('user_profile.php', $data);
 
     }
 
@@ -124,18 +125,23 @@ class User extends CI_Controller
         $this->session->sess_destroy();
         redirect('user/login_view', 'refresh');
     }
-    public function layout()
-    {
+
+    public function layout()    {
+
         $this->load->view('layout');
     }
+
 // controller update
-    public function update(){
-            $user_id = $_GET['user_id'];
-            $data['users'] = $this->user_model->show_user_id($user_id);
-            $this->load->view('update_user',$data);
+    public function update()
+    {
+        $user_id = $_GET['user_id'];
+        $data['users'] = $this->user_model->show_user_id($user_id);
+        $this->load->view('update_user', $data);
     }
-    public function update_user_id() {
-        $user_id= $this->input->post('user_id');
+
+    public function update_user_id()
+    {
+        $user_id = $this->input->post('user_id');
         $data = array(
             'user_name' => $this->input->post('user_name'),
             'user_email' => $this->input->post('user_email'),
@@ -144,25 +150,28 @@ class User extends CI_Controller
             'user_mobile' => $this->input->post('user_mobile'),
             'user_role' => $this->input->post('user_role')
         );
-        $this->user_model->update_user_id($user_id,$data);
+        $this->user_model->update_user_id($user_id, $data);
         $this->user_model->show_user_id($user_id);
         $data['users'] = $this->user_model->get_users();
         $this->load->view('user_profile.php', $data);
     }
-    public function delete(){
-        $user_id= $this->input->get('user_id');
-        if($this->user_model->delete($user_id)){
-            $data['users']=$this->user_model->get_users();
-            $this->load->view('user_profile.php',$data);
+
+    public function delete()
+    {
+        $user_id = $this->input->get('user_id');
+        if ($this->user_model->delete($user_id)) {
+            $data['users'] = $this->user_model->get_users();
+            $this->load->view('user_profile.php', $data);
 
         }
-        }
+    }
+
     public function search_keyword()
     {
-        $user_name= $this->input->post('user_name');
-        $data['users']= $this->user_model->search($user_name);
-        $this->load->view('user_profile.php',$data);
+        $user_name = $this->input->post('user_name');
+        $data['users'] = $this->user_model->search($user_name);
+        $this->load->view('user_profile.php', $data);
     }
-    }
+}
 
 ?>
