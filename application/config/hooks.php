@@ -11,9 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
-$hook['display_override '] = function()
-{
-    echo 'toi dang goi hook';
-    exit();
-    /* do something here */
-};
+$hook['pre_controller'][] = array(
+    'class'    => 'User',
+    'function' => 'index',
+    'filename' => 'User.php',
+    'filepath' => 'hooks'
+);

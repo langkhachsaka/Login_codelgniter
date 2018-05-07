@@ -172,6 +172,12 @@ class User extends CI_Controller
         $data['users'] = $this->user_model->search($user_name);
         $this->load->view('user_profile.php', $data);
     }
+    public function delete_check(){
+        foreach ($_POST['user_id'] as $user_id){
+            $this->user_model->delete($user_id);
+        }
+        return redirect('user/user_profile');
+    }
 }
 
 ?>

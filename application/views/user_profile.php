@@ -51,9 +51,13 @@
         <input type="text" onfocus="this.value=''" value="Nhập tên user" name = "user_name" />
         <input type="submit"  name="submit" value = "Search" style="color: #2e8ece; border-radius: 5px" />
     </form>
+
     <br>
+    <?php echo form_open('user/delete_check')?>
+    <input type="submit" value="delete" onclick="return confirm('Sure')"/>
     <table>
         <tr>
+            <th>Stt</th>
             <th>ID</th>
             <th>Name</th>
             <th>Email</th>
@@ -67,7 +71,7 @@
 
         <?php foreach ($users as $user) : ;?>
             <tr>
-
+                <td><input type="checkbox" class="chkCheckBoxId" value="<?php echo $user['user_id'];?>" name="user_id[]"/></td>
                 <td><?php echo $user['user_id']; ?></td>
                 <td><?php echo $user['user_name']; ?></td>
                 <td><?php echo $user['user_email']; ?></td>
@@ -75,15 +79,15 @@
                 <td><?php echo $user['user_mobile']; ?></td>
                 <td><?php echo $user['user_role']; ?></td>
                 <td>
-                    <a href="<?php echo base_url('user/update?user_id=' . $user['user_id']) ?>">Update</a>
-                    <a href="<?php echo base_url('user/delete?user_id=' . $user['user_id']) ?>">Delete</a>
+                    <a href="<?php echo base_url('user/update?user_id=' . $user['user_id']) ?>" >Update</a>
+                    <a href="<?php echo base_url('user/delete?user_id=' . $user['user_id']) ?>" onclick="return confirm('Sure')">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
 
         </tbody>
     </table>
-
+    <?php echo form_close()?>
 
 </div>
 </body>
