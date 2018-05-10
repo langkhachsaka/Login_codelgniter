@@ -4,7 +4,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
     <script language="JavaScript" src="<?php echo base_url('assets/css/script_tab.js'); ?>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="JavaScript" src="<?php echo base_url('assets/css/jquery3.3.1.js'); ?>"></script>
+    <script language="JavaScript" src="<?php echo base_url('assets/css/jquery.validate.min.js'); ?>"></script>
 </head>
 <body>
 <header>

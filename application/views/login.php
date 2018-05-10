@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Login</title>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css'); ?>">
+    <script language="JavaScript" src="<?php echo base_url('assets/css/jquery3.3.1.js'); ?>"></script>
+    <script language="JavaScript" src="<?php echo base_url('assets/css/jquery.validate.min.js'); ?>"></script>
 </head>
 <body>
 
@@ -38,10 +40,10 @@
                     <form role="form" method="post" action="<?php echo base_url('user/login_user'); ?>">
                         <fieldset>
                             <div class="form-group"  >
-                                <input class="form-control" placeholder="E-mail" name="user_email" type="email" autofocus>
+                                <input class="form-control" placeholder="E-mail" name="user_email" type="email" data-required autofocus>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="user_password" type="password" value="">
+                                <input class="form-control" placeholder="Password" name="user_password" type="password" value="" data-required>
                             </div>
 
 
@@ -57,7 +59,28 @@
         </div>
     </div>
 </div>
+ <script>
+    $(document).ready(function(){
+        $('form').validate({
+            onKeyup: true,
+            eachValidField: function() {
+                $(this).removeClass('error').addClass('success');
+            },
+            eachInvalidField: function() {
 
+                $(this).removeClass('success').addClass('error');
+            },
+            // Conditional dùng để tạo các rule kiểm tra điều kiện riêng
+            // và kết quả trả về của mỗi rule là true/false
+            // Mỗi rule sẽ có tên trùng với khai báo data-conditional="checkpassword"
+            conditional: {
+                checkpassword : function() {
+                    return $(this).val() == $('#password').val();
+                }
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

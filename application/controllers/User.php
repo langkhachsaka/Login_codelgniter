@@ -36,12 +36,12 @@ class User extends CI_Controller
 
         if ($email_check) {
             $this->user_model->register_user($user);
-            $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
+            $this->session->set_flashdata('success_msg', 'Đăng kí thành công');
             redirect('user/login_view');
 
         } else {
 
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+            $this->session->set_flashdata('error_msg', 'Thất bại!!!');
             redirect('user');
         }
 
@@ -68,13 +68,13 @@ class User extends CI_Controller
 
         if ($email_check) {
             $this->user_model->add_user($users);
-            $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
+            $this->session->set_flashdata('success_msg', 'Đăng kí thành công');
             $data['users'] = $this->user_model->get_users();
             $this->load->view('user_profile.php', $data);
 
         } else {
 
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+            $this->session->set_flashdata('error_msg', 'Thất bại!!!');
             $this->load->view('add_user');
 
         }
@@ -105,7 +105,7 @@ class User extends CI_Controller
             $this->load->view('user_profile.php', $data);
         } // login sai thì sẽ --> trang login và báo lỗi
         else {
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+            $this->session->set_flashdata('error_msg', 'Thất bại!!!');
             $this->load->view("login.php");
 
         }
@@ -134,7 +134,7 @@ class User extends CI_Controller
 // controller update
     public function update()
     {
-        $user_id = $_GET['user_id'];
+        $user_id = $_GET    ['user_id'];
         $data['users'] = $this->user_model->show_user_id($user_id);
         $this->load->view('update_user', $data);
     }
